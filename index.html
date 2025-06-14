@@ -140,14 +140,14 @@
             width: 250px;
             height: 250px;
             border-radius: 50%;
+            overflow: hidden;
             flex-shrink: 0;
-            background: linear-gradient(135deg, #4b5563, #6b7280);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: #ffffff;
-            font-weight: bold;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .about-text {
@@ -502,7 +502,7 @@
             </div>
             <div class="about-section">
                 <div class="profile-photo">
-                    AC
+                    <img src="profile.jpg" alt="Aleksandr Chikurov" />
                 </div>
                 <div class="about-text">
                     <p>Hi, my name's Aleksandr and I'm a QA Engineer. Results-driven and strong attention-to-detail. Passionate about testing software applications. Unfortunately, I did not get inherited estates and capitals, therefore I am devilishly hardworking! Ability to learn quickly, often under high deadlines, to fully understand a new product or platform. Great problem solving skills and ability to perform work well in a team. I have experience in commercial projects where I have acquired teamwork and leadership skills. I know JavaScript and Python (basic scripting).</p>
