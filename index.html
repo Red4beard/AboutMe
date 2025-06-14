@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aleksandr Chikurov - QA Engineer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #111827;
+            color: #f3f4f6;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 60px;
+        }
+
+        .header-left {
+            flex: 1;
+        }
+
+        .header-left h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            color: #ffffff;
+            font-weight: 300;
+        }
+
+        .header-left h2 {
+            font-size: 1.2rem;
+            margin: 10px 0 0 0;
+            color: #9ca3af;
+            font-weight: 300;
+        }
+
+        .header-right {
+            text-align: right;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            justify-content: flex-end;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #f3f4f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #111827;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: #d1d5db;
+        }
+
+        .contact-info {
+            color: #f3f4f6;
+            font-size: 0.9rem;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ffffff;
+            position: relative;
+        }
+
+        .section-title::before,
+        .section-title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 200px;
+            height: 1px;
+            background: repeating-linear-gradient(
+                to right,
+                #6b7280 0,
+                #6b7280 10px,
+                transparent 10px,
+                transparent 20px
+            );
+        }
+
+        .section-title::before {
+            right: 100%;
+            margin-right: 30px;
+        }
+
+        .section-title::after {
+            left: 100%;
+            margin-left: 30px;
+        }
+
+        .about-section {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+        }
+
+        .profile-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #4b5563, #6b7280);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            font-size: 1rem;
+            color: #d1d5db;
+            margin-bottom: 20px;
+        }
+
+        .skills-tags {
+            margin: 20px 0;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background-color: #4b5563;
+            color: #ffffff;
+            padding: 5px 12px;
+            margin: 3px 5px 3px 0;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .languages-section {
+            margin-top: 30px;
+        }
+
+        .languages-section h4 {
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .language-tag {
+            display: inline-block;
+            background-color: #374151;
+            color: #ffffff;
+            padding: 5px 12px;
+            margin: 3px 5px 3px 0;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .experience-section {
+            margin-bottom: 60px;
+        }
+
+        .experience-subtitle {
+            text-align: center;
+            font-style: italic;
+            color: #9ca3af;
+            margin-bottom: 40px;
+            font-size: 1rem;
+        }
+
+        .job {
+            margin-bottom: 40px;
+        }
+
+        .job-header {
+            margin-bottom: 20px;
+        }
+
+        .job-title {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .job-company {
+            color: #9ca3af;
+            font-size: 1rem;
+            margin: 5px 0;
+        }
+
+        .job-period {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin: 5px 0;
+        }
+
+        .job-reference {
+            color: #6b7280;
+            font-size: 0.8rem;
+            font-style: italic;
+        }
+
+        .job-description {
+            color: #d1d5db;
+            margin: 15px 0;
+        }
+
+        .job-achievements {
+            list-style: none;
+            padding: 0;
+        }
+
+        .job-achievements li {
+            color: #d1d5db;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .job-achievements li::before {
+            content: '•';
+            color: #9ca3af;
+            position: absolute;
+            left: 0;
+        }
+
+        .job-achievements a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        .job-achievements a:hover {
+            text-decoration: underline;
+        }
+
+        .education-section {
+            margin-bottom: 60px;
+        }
+
+        .education-subtitle {
+            text-align: center;
+            font-style: italic;
+            color: #9ca3af;
+            margin-bottom: 40px;
+            font-size: 1rem;
+        }
+
+        .education-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-item {
+            margin-bottom: 30px;
+        }
+
+        .education-item h3 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin: 0 0 10px 0;
+        }
+
+        .education-meta {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .education-reference {
+            color: #6b7280;
+            font-size: 0.8rem;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .education-description {
+            color: #d1d5db;
+            margin-bottom: 15px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .skill-column {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-column li {
+            color: #d1d5db;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .skill-column li::before {
+            content: '•';
+            color: #9ca3af;
+            position: absolute;
+            left: 0;
+        }
+
+        .dear-hiring-manager {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .dear-hiring-manager h3 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+
+        .dear-hiring-manager p {
+            color: #d1d5db;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            text-align: left;
+        }
+
+        .position-highlight {
+            background-color: #4b5563;
+            color: #ffffff;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .more-about-me {
+            margin-top: 60px;
+        }
+
+        .more-about-me h3 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .interests {
+            text-align: center;
+            color: #d1d5db;
+        }
+
+        .interests ul {
+            list-style: none;
+            padding: 0;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .interests li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .interests li::before {
+            content: '•';
+            color: #9ca3af;
+            position: absolute;
+            left: 0;
+        }
+
+        .footer {
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-left h1 {
+                font-size: 2.5rem;
+            }
+
+            .header-right {
+                margin-top: 30px;
+                text-align: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+
+            .about-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .profile-photo {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 30px;
+            }
+
+            .section-title::before,
+            .section-title::after {
+                width: 50px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <h1>Aleksandr Chikurov</h1>
+                <h2>Software Test Engineer | UI & API Test Automation | Cypress, Selenium, Postman</h2>
+            </div>
+            <div class="header-right">
+                <div class="social-icons">
+                    <a href="https://github.com/red4beard" class="social-icon" target="_blank">G</a>
+                    <a href="https://www.linkedin.com/in/aleksandr-chikurov" class="social-icon" target="_blank">in</a>
+                    <a href="https://t.me/alchikurov" class="social-icon" target="_blank">@</a>
+                    <a href="#" class="social-icon">△</a>
+                </div>
+                <div class="contact-info">
+                    <strong>Email:</strong> alchikurov@gmail.com
+                </div>
+            </div>
+        </header>
+
+        <!-- About Me Section -->
+        <section class="section">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-section">
+                <div class="profile-photo">
+                    AC
+                </div>
+                <div class="about-text">
+                    <p>Hi, my name's Aleksandr and I'm a QA Engineer. Results-driven and strong attention-to-detail. Passionate about testing software applications. Unfortunately, I did not get inherited estates and capitals, therefore I am devilishly hardworking! Ability to learn quickly, often under high deadlines, to fully understand a new product or platform. Great problem solving skills and ability to perform work well in a team. I have experience in commercial projects where I have acquired teamwork and leadership skills. I know JavaScript and Python (basic scripting).</p>
+                    
+                    <p>I am most skilled in: <span class="skill-tag">Bug localization</span> and <span class="skill-tag">Test Automation</span></p>
+                    
+                    <div class="languages-section">
+                        <h4>Language</h4>
+                        <span class="language-tag">English</span> - Professional Working Proficiency<br>
+                        <span class="language-tag">Russian</span> - Native or Bilingual Proficiency<br>
+                        <span class="language-tag">Serbian</span> - Limited Working Proficiency
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="section experience-section">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-subtitle">
+                Solving 21st century problems by through endless testing in the name of creating game-changing products
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <h3 class="job-title">QA Engineer</h3>
+                    <div class="job-company">Altermeliora</div>
+                    <div class="job-period">2022 - Present</div>
+                    <div class="job-reference">Reference - QA Manager</div>
+                </div>
+                <div class="job-description">
+                    Every company needs a good quality assurance engineer and Altermeliora is not an exception. Testing can be difficult, but I play my part by ensuring the quality of the product and enjoy driving the fact that company appreciates my work which is:
+                </div>
+                <ul class="job-achievements">
+                    <li>Built Cypress framework from scratch using Page Object Model</li>
+                    <li>Web testing (cross-platform educational application and webinar platform with 5,000+ users)</li>
+                    <li>Mobile testing (Android/iOS applications)</li>
+                    <li>API testing, performance testing using JMeter</li>
+                    <li>Reduced redundant code by 30% through reusable components</li>
+                    <li>Integrated new test management systems (<a href="#">Qase</a>, <a href="#">AIO Tests</a>, <a href="#">Postman</a>)</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <h3 class="job-title">Freelance QA Tester</h3>
+                    <div class="job-company">uTest</div>
+                    <div class="job-period">2018 – 2022</div>
+                    <div class="job-reference">Reference - Silver tester rating</div>
+                </div>
+                <ul class="job-achievements">
+                    <li>Web testing (fintech applications)</li>
+                    <li>Mobile testing (Android/iOS, specialized in healthcare applications)</li>
+                    <li>API testing, Cross-platform, Cross-browser testing</li>
+                    <li>Performance testing using Charles Proxy</li>
+                    <li>Testing healthcare applications where medical terminology knowledge was crucial (EMG diagnostic tools)</li>
+                    <li>Test documentation (checklists, test cases, bug reports, test result reports)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="section education-section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-subtitle">
+                Per aspera ad astra... The difficult path from junior to commercial practice mentor
+            </div>
+
+            <div class="education-content">
+                <p>After a long period of self-study, I decided to enroll in various courses and training programs. In addition to technical knowledge, in the flow of students, I acquired many <span class="skill-tag">soft skills</span>:</p>
+
+                <div class="skills-grid">
+                    <ul class="skill-column">
+                        <li>Attention to details</li>
+                        <li>Team player</li>
+                        <li>Focus on quality</li>
+                    </ul>
+                    <ul class="skill-column">
+                        <li>Adaptability</li>
+                        <li>Communicability</li>
+                        <li>Problem-solving</li>
+                    </ul>
+                    <ul class="skill-column">
+                        <li>Test Theory</li>
+                        <li>Analyzing requirements</li>
+                        <li>DevTools usage</li>
+                    </ul>
+                </div>
+
+                <div class="education-item">
+                    <h3>Software QA Training</h3>
+                    <div class="education-meta">Portnov-Online • 2022 - Present</div>
+                    <div class="education-reference">Reference - Lead QA Instructor</div>
+                    <div class="education-description">
+                        During the course, I learned a lot and acquired the following <span class="skill-tag">hard skills</span>:
+                    </div>
+                    <div class="skills-grid">
+                        <ul class="skill-column">
+                            <li>Testing Theory</li>
+                            <li>Analyzing and testing requirements</li>
+                            <li>DevTools (Google Chrome, Firefox, Opera)</li>
+                            <li>Android Studio</li>
+                            <li>HTML & CSS (YAML)</li>
+                        </ul>
+                        <ul class="skill-column">
+                            <li>Fiddler, Charles</li>
+                            <li>AppFlyer</li>
+                            <li>Jira, YouTrack</li>
+                            <li>Git, GitHub</li>
+                            <li>TC</li>
+                        </ul>
+                        <ul class="skill-column">
+                            <li>Postman</li>
+                            <li>SQL basics</li>
+                            <li>JS</li>
+                            <li>Terminal</li>
+                            <li>Jmeter</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <h3>Medical Doctor (M.D.)</h3>
+                    <div class="education-meta">Medical Academy, Saint-Petersburg • 2012</div>
+                    <div class="education-description">
+                        My medical background gives me a unique advantage in healthcare projects where I combine domain expertise with technical QA skills.
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <h3>ISTQB Foundation Level</h3>
+                    <div class="education-meta">In progress (expected 2025)</div>
+                </div>
+
+                <p>By the way, my activity on the course did not go unnoticed! I became a commercial practice mentor. My duties included: Review tasks, review bugs-reports, answering students' questions on course topics, explain mistakes, checking and helping with students' homeworks and more...</p>
+
+                <p>I continue to study diligently, with fire in my eyes to study a new profession! My main profession is a primary school teacher. What does it mean? That I'm stress-resistant to everything!</p>
+            </div>
+        </section>
+
+        <!-- Dear Hiring Manager -->
+        <section class="dear-hiring-manager">
+            <h3>Dear Hiring Manager</h3>
+            <p>Thank you for me taking your time and considering my candidacy.</p>
+            <p>I created this site to show my interest in the position of <span class="position-highlight">Junior - Manual QA Engineer</span> and to get you a little distracted from the standard CV made from a template. And also, this project helped me to improve HTML skills.</p>
+            <p>I have solid theoretical knowledge in QA and almost half a year I've been working for commercial project where I've been practicing and improving my hard and soft skills. Currently I'm managing several teams and estimating, prioritizing, planning and coordination quality testing activities. I am sure that I will be able to contribute to such cutting ages company like yours. Results-driven and strong attention to detail. Ability to learn quickly, often in high pressure situations, in order to fully understand a new product or platform. Great problem-solving skills and ability to perform well in a team.</p>
+            <p>Here I attach my resume for your review. Looking forward to discussing my candidacy and suitability for this position during an interview at your earliest convenience. Thank you for your time and consideration!</p>
+            <p><strong>Best Regards, Aleksandr Chikurov.</strong></p>
+        </section>
+
+        <!-- A Little More About Me -->
+        <section class="more-about-me">
+            <h3>A Little More About Me</h3>
+            <div class="interests">
+                <p>Alongside my interests in testing, other interests and hobbies are:</p>
+                <ul>
+                    <li>Video Gaming</li>
+                    <li>Traveling</li>
+                    <li>Cooking</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            Aleksandr Chikurov • alchikurov@gmail.com • References on request
+        </footer>
+    </div>
+</body>
+</html>
