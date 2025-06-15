@@ -6,26 +6,44 @@
     <meta name="description" content="Portfolio page of Aleksandr Chikurov, QA Engineer specialized in UI, API, and automation testing.">
     <meta name="keywords" content="QA Engineer, Software Testing, Cypress, Selenium, Postman, Portfolio">
     <meta name="author" content="Aleksandr Chikurov">
+    <meta name="theme-color" content="#111827">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <script src="https://unpkg.com/lucide@latest"></script>
     <title>Aleksandr Chikurov - QA Engineer</title>
     <style>
+        :root {
+            --color-bg: #111827;
+            --color-text: #f3f4f6;
+            --color-accent: #9ca3af;
+            --color-primary: #60a5fa;
+            --color-secondary: #374151;
+            --radius: 15px;
+            --gap: 30px;
+        }
+
+        html {
+            box-sizing: border-box;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
         body {
             margin: 0;
             padding: 0;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background-color: #111827;
-            color: #f3f4f6;
+            background-color: var(--color-bg);
+            color: var(--color-text);
             line-height: 1.6;
         }
 
-        .container {
+        main {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
         }
 
-        .header {
+        header.header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
@@ -39,14 +57,14 @@
         .header-left h1 {
             font-size: 3.5rem;
             margin: 0;
-            color: #f3f4f6;
+            color: var(--color-text);
             font-weight: 300;
         }
 
         .header-left h2 {
             font-size: 1.2rem;
             margin: 10px 0 0 0;
-            color: #9ca3af;
+            color: var(--color-accent);
             font-weight: 300;
         }
 
@@ -54,7 +72,7 @@
             text-align: right;
         }
 
-        .social-icons {
+        nav.social-icons {
             display: flex;
             gap: 15px;
             margin: 30px 0 20px 0;
@@ -64,24 +82,23 @@
         .social-icon {
             width: 40px;
             height: 40px;
-            background-color: #9ca3af;
+            background-color: var(--color-accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            color: #111827;
+            color: var(--color-bg);
             font-weight: bold;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, box-shadow 0.2s;
+            outline: none;
         }
 
-        .social-icon:hover {
-            background-color: #d1d5db;
-        }
-
-        .contact-info {
-            color: #f3f4f6;
-            font-size: 0.9rem;
+        .social-icon:hover,
+        .social-icon:focus {
+            background-color: var(--color-primary);
+            color: var(--color-text);
+            box-shadow: 0 0 0 2px var(--color-primary);
         }
 
         .section {
@@ -101,7 +118,7 @@
 
         .section-title h2 {
             font-size: 2rem;
-            color: #f3f4f6;
+            color: var(--color-text);
             margin: 0;
             white-space: nowrap;
             font-weight: 300;
@@ -110,7 +127,7 @@
         .section-title .line {
             flex-grow: 1;
             height: 1px;
-            background-color: #9ca3af;
+            background-color: var(--color-accent);
             opacity: 0.7;
             min-width: 50px;
         }
@@ -133,6 +150,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
+            border-radius: 50%;
         }
 
         .about-text {
@@ -142,33 +161,17 @@
         .about-text p {
             font-size: 1.2rem;
             font-weight: 300;
-            color: #9ca3af;
+            color: var(--color-accent);
             margin-bottom: 20px;
             text-align: justify;
         }
 
-
-        /*.skills-tags {
-            margin: 20px 0;
-        }
-
-        .skill-tag {
-            display: inline-block;
-            background-color: #374151;
-            color: #f3f4f6;
-            padding: 5px 12px;
-            margin: 3px 5px 3px 0;
-            border-radius: 15px;
-            font-size: 1rem;
-        }*/
-
         .languages-section {
             margin-top: 30px;
-
         }
 
         .languages-section h4 {
-            color: #f3f4f6;
+            color: var(--color-text);
             margin-bottom: 15px;
             font-size: 1.2rem;
             font-weight: 300;
@@ -176,7 +179,7 @@
         }
 
         .language-line {
-            color: #9ca3af;
+            color: var(--color-accent);
             font-size: 1.2rem;         
             font-weight: 300;       
             margin: 5px 0;
@@ -185,24 +188,48 @@
 
         .language-tag {
             display: inline-block;
-            background-color: #374151;
-            color: #f3f4f6;
+            background-color: var(--color-secondary);
+            color: var(--color-text);
             padding: 5px 12px;
             margin: 3px 5px 3px 0;
-            border-radius: 15px;
+            border-radius: var(--radius);
             font-size: 1rem;
+        }
+
+        .job-achievements {
+            list-style: none;
+            padding: 0;
+        }
+
+        .job-achievements li {
+            color: var(--color-accent);
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            font-weight: 300;
+            font-size: 1.2rem;
+            text-align: left;
+        }
+
+        .job-achievements li::before {
+            content: '•';
+            color: var(--color-accent);
+            position: absolute;
+            left: 0;
+        }
+
+        .job-achievements a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .job-achievements a:hover,
+        .job-achievements a:focus {
+            text-decoration: underline;
         }
 
         .experience-section {
             margin-bottom: 60px;
-        }
-
-        .experience-subtitle {
-            text-align: left;
-            font-style: italic;
-            color: #f3f4f6;
-            margin-bottom: 40px;
-            font-size: 1rem;
         }
 
         .job {
@@ -215,95 +242,47 @@
 
         .job-title {
             font-size: 1.5rem;
-            color: #f3f4f6;
+            color: var(--color-text);
             margin: 0;
             font-weight: 300;
         }
 
-        .job-company {
-            color: #f3f4f6;
-            font-size: 1rem;
-            margin: 5px 0;
-        }
-
-        .job-period {
-            color: #f3f4f6;
+        .job-company,
+        .job-period,
+        .job-reference {
+            color: var(--color-text);
             font-size: 1rem;
             margin: 5px 0;
         }
 
         .job-reference {
-            color: #f3f4f6;
-            font-size: 1rem;
             font-style: italic;
         }
         .job-reference a {
-            color: #60a5fa;
-            font-size: 1rem;
+            color: var(--color-primary);
             font-style: italic;
         }
 
         .job-description {
-            color: #f3f4f6;
+            color: var(--color-text);
             margin: 15px 0;
             font-weight: 300;
             font-size: 1.2rem;
             text-align: justify;
         }
 
-        .job-achievements {
-            list-style: none;
-            padding: 0;
-        }
-
-        .job-achievements li {
-            color: #9ca3af;
-            margin-bottom: 8px;
-            padding-left: 20px;
-            position: relative;
-            font-weight: 300;
-            font-size: 1.2rem;
-            text-align: left;
-        }
-
-        .job-achievements li::before {
-            content: '•';
-            color: #9ca3af;
-            position: absolute;
-            left: 0;
-        }
-
-        .job-achievements a {
-            color: #60a5fa;
-            text-decoration: none;
-        }
-
-        .job-achievements a:hover {
-            text-decoration: underline;
-        }
-
         .education-section {
             margin-bottom: 60px;
         }
 
-        .education-subtitle {
-            text-align: left;
-            font-style: italic;
-            color: #9ca3af;
-            margin-bottom: 40px;
-            font-size: 1.2rem;
-            font-weight: 300;
-        }
-
         .education-content {
-            /*max-width: 2000px;*/
             margin: 0;
         }
 
         .education-intro {
             font-size: 1.2rem;
             font-weight: 300;
-            color: #9ca3af;
+            color: var(--color-accent);
             margin-bottom: 20px;
             text-align: justify;
         }
@@ -313,26 +292,26 @@
         }
 
         .education-reference a {
-            color: #60a5fa;
+            color: var(--color-primary);
             font-size: 1rem;
             font-style: italic;
         }
 
         .education-item h3 {
-            color: #f3f4f6;
+            color: var(--color-text);
             font-size: 1.5rem;
             margin: 0 0 10px 0;
             font-weight: 300;
         }
 
         .education-meta {
-            color: #f3f4f6;
+            color: var(--color-text);
             font-size: 1rem;
             margin-bottom: 5px;
         }
 
         .education-reference {
-            color: #f3f4f6;
+            color: var(--color-text);
             font-size: 1rem;
             font-style: italic;
             margin-bottom: 15px;
@@ -341,7 +320,7 @@
         .courses-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: var(--gap);
             margin: 20px 0;
             font-size: 1rem;
             font-weight: 300;
@@ -354,7 +333,7 @@
         }
 
         .course-column li {
-            color: #f3f4f6;
+            color: var(--color-text);
             margin-bottom: 8px;
             padding-left: 20px;
             position: relative;
@@ -363,7 +342,7 @@
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: var(--gap);
             margin: 20px 0;
             font-size: 1.2rem;
             font-weight: 300;
@@ -375,7 +354,7 @@
         }
 
         .skill-column li {
-            color: #9ca3af;
+            color: var(--color-accent);
             margin-bottom: 8px;
             padding-left: 20px;
             position: relative;
@@ -383,7 +362,7 @@
 
         .skill-column li::before {
             content: '•';
-            color: #9ca3af;
+            color: var(--color-accent);
             position: absolute;
             left: 0;
         }
@@ -398,15 +377,8 @@
             padding: 0 20px;
         }
 
-        /*.dear-hiring-manager h3 {
-            color: #f3f4f6;
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            text-align: center;
-        }*/
-
         .letter-hiring-manager p {
-            color: #9ca3af;
+            color: var(--color-accent);
             margin: 0 0 20px 0;
             text-align: justify;
             align-self: flex-start;
@@ -415,17 +387,12 @@
         }
 
         .position-highlight {
-            /*background-color: #374151;
-            color: #f3f4f6;
-            padding: 2px 8px;
-            border-radius: 4px;*/
-
             display: inline-block;
-            background-color: #374151;
-            color: #f3f4f6;
+            background-color: var(--color-secondary);
+            color: var(--color-text);
             padding: 5px 12px;
             margin: 3px 5px 3px 0;
-            border-radius: 15px;
+            border-radius: var(--radius);
             font-size: 1rem;
         }
 
@@ -438,7 +405,7 @@
         }
 
         .more-about-me h3 {
-            color: #f3f4f6;
+            color: var(--color-text);
             font-size: 1.8rem;
             margin-bottom: 30px;
             text-align: center;
@@ -449,7 +416,7 @@
             max-width: 2000px;
             align-self: flex-start;
             text-align: left;
-            color: #9ca3af;
+            color: var(--color-accent);
             font-size: 1.2rem;
             font-weight: 300;
         }
@@ -469,22 +436,46 @@
 
         .interests li::before {
             content: '•';
-            color: #9ca3af;
+            color: var(--color-accent);
             position: absolute;
             left: 0;
         }
 
         .footer {
             text-align: center;
-            color: #9ca3af;
+            color: var(--color-accent);
             font-size: 0.9rem;
             margin-top: 60px;
             padding-top: 30px;
-            border-top: 1px solid #374151;
+            border-top: 1px solid var(--color-secondary);
+        }
+
+        /* Accessibility: focus for all links and buttons */
+        a:focus, button:focus {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+
+        @media (max-width: 1024px) {
+            .about-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .profile-photo {
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .courses-grid,
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         @media (max-width: 768px) {
-            .header {
+            header.header {
                 flex-direction: column;
                 text-align: center;
             }
@@ -498,7 +489,7 @@
                 text-align: center;
             }
 
-            .social-icons {
+            nav.social-icons {
                 justify-content: center;
                 margin-top: 25px;
                 margin-left: auto;
@@ -522,6 +513,7 @@
                 width: 50px;
             }
 
+            .courses-grid,
             .skills-grid {
                 grid-template-columns: 1fr;
             }
@@ -529,32 +521,32 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <main>
         <!-- Header -->
         <header class="header">
             <div class="header-left">
                 <h1>Aleksandr Chikurov</h1>
-                <h2>Software Test Engineer | Manual and UI & API Test Automation | Cypress, Selenium, Pytest, Postman</h2>
+                <h2>Software Test Engineer | Manual and UI &amp; API Test Automation | Cypress, Selenium, Pytest, Postman</h2>
                 <h2>Novi Sad, Serbia</h2>
             </div>
-            <div class="social-icons">
-                <a href="https://github.com/red4beard" class="social-icon" target="_blank" aria-label="GitHub">
+            <nav class="social-icons" aria-label="Social links">
+                <a href="https://github.com/red4beard" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                     <i data-lucide="github"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/aleksandr-chikurov" class="social-icon" target="_blank" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/aleksandr-chikurov" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <i data-lucide="linkedin"></i>
                 </a>
-                <a href="https://t.me/emg812" class="social-icon" target="_blank" aria-label="Telegram">
+                <a href="https://t.me/emg812" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
                     <i data-lucide="send"></i>
                 </a>
-                <a href="mailto:alchikurov@gmail.com" class="social-icon" aria-label="Email">
+                <a href="mailto:alchikurov@gmail.com" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Email">
                     <i data-lucide="mail"></i>
                 </a>
-            </div>
+            </nav>
         </header>
 
         <!-- About Me Section -->
-        <section class="section">
+        <section class="section" id="about">
             <div class="section-title">
                 <span class="line"></span>
                 <h2>About me</h2>
@@ -562,7 +554,7 @@
             </div>
             <div class="about-section">
                 <div class="profile-photo">
-                    <img src="profile.jpg" alt="Aleksandr Chikurov" />
+                    <img src="profile.jpg" alt="Portrait of Aleksandr Chikurov, QA Engineer" loading="lazy" />
                 </div>
                 <div class="about-text">
                     <p>Hello, my name is Aleksandr and I'm a QA Engineer. I'm very focused on results and like to pay attention to small details. I really enjoy testing software and making sure it works well for users. I'm a motivated person who learns quickly, even when there are tight deadlines. I can work alone or in a team, and I like solving problems. In commercial projects, I have learned how to work with others and take responsibility. I also use JavaScript and Python to create automated tests and improve testing processes. I'm open to both full-time employment and B2B contract options, depending on the company's needs. I am also comfortable with remote, hybrid, or office work formats.</p>
@@ -587,22 +579,18 @@
         </section>
 
         <!-- Experience Section -->
-        <section class="section experience-section">
+        <section class="section experience-section" id="experience">
             <div class="section-title">
                 <span class="line"></span>
                 <h2>Experience</h2>
                 <span class="line"></span>
             </div>
-            <!-- <div class="experience-subtitle">
-                Solving 21st century problems by through endless testing in the name of creating game-changing products
-            </div> -->
-
             <div class="job">
                 <div class="job-header">
                     <h3 class="job-title">QA Engineer</h3>
                     <div class="job-company">Altermeliora</div>
                     <div class="job-period">2022 - Present</div>
-                    <div class="job-reference">Reference - <a href="https://www.linkedin.com/in/aleksandr-chikurov/details/recommendations/?detailScreenTabIndex=0">Team Lead</a></div>
+                    <div class="job-reference">Reference - <a href="https://www.linkedin.com/in/aleksandr-chikurov/details/recommendations/?detailScreenTabIndex=0" target="_blank" rel="noopener noreferrer">Team Lead</a></div>
                 </div>
                 <div class="job-description">
                     Every company needs a good quality assurance engineer and Altermeliora is not an exception. Testing can be difficult, but I play my part by ensuring the quality of the product and enjoy driving the fact that company appreciates my work which is:
@@ -641,7 +629,7 @@
                     <h3 class="job-title">Medical Investigator</h3>
                     <div class="job-company">Merk + Iqvia (contract)</div>
                     <div class="job-period">2021 - 2022</div>
-                    <div class="job-reference">Reference - on request</a></div>
+                    <div class="job-reference">Reference - on request</div>
                 </div>
                 <div class="job-description">
                     As an investigator on phase III, multicenter, randomized, parallel-group, double-blind, double-dummy, active-controlled study:
@@ -657,15 +645,12 @@
         </section>
 
         <!-- Education Section -->
-        <section class="section education-section">
+        <section class="section education-section" id="education">
             <div class="section-title">
                 <span class="line"></span>
                 <h2>Education</h2>
                 <span class="line"></span>
             </div>
-            <!--<div class="education-subtitle">
-                Per aspera ad astra... The difficult path from junior to commercial practice mentor
-            </div>-->
             <div class="education-content">
                 <div class="courses-grid">
                     <ul class="course-column">
@@ -673,7 +658,7 @@
                             <div class="education-item">
                                 <h3>Manual QA course</h3>
                                 <div class="education-meta">Geekbrains • 2018 </div>
-                                <div class="education-reference">Certificate - <a href="">Link</a></div>
+                                <div class="education-reference">Certificate - <a href="" target="_blank" rel="noopener noreferrer">Link</a></div>
                             </div>
                         </li>
                     </ul>
@@ -703,7 +688,7 @@
                         <li>Analyzing and testing requirements</li>
                         <li>DevTools (Google Chrome, Firefox, Safari)</li>
                         <li>Android Studio</li>
-                        <li>HTML & CSS</li>
+                        <li>HTML &amp; CSS</li>
                     </ul>
                     <ul class="skill-column">
                         <li>Fiddler, Charles</li>
@@ -755,7 +740,7 @@
         </section>
        
         <!-- Beyond QA -->
-        <section class="section more-about-me">
+        <section class="section more-about-me" id="beyond-qa">
             <div class="section-title">
                 <span class="line"></span>
                 <h2>Beyond QA</h2>
@@ -774,7 +759,7 @@
         </section>
 
         <!-- Dear Hiring Manager -->
-        <section class="section dear-hiring-manager">
+        <section class="section dear-hiring-manager" id="dear-hiring-manager">
             <div class="section-title">
                 <span class="line"></span>
                 <h2>Dear Hiring Manager</h2>
@@ -792,9 +777,9 @@
 
         <!-- Footer -->
         <footer class="footer">
-            Aleksandr Chikurov • alchikurov@gmail.com • References on request
+            Aleksandr Chikurov • <a href="mailto:alchikurov@gmail.com" style="color:inherit;text-decoration:underline;" target="_blank" rel="noopener noreferrer">alchikurov@gmail.com</a> • References on request
         </footer>
-    </div>
+    </main>
     <script>
         lucide.createIcons();
     </script>
