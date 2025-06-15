@@ -336,6 +336,15 @@
             margin-bottom: 15px;
         }
 
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 20px 0;
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -343,6 +352,13 @@
             margin: 20px 0;
             font-size: 1rem;
             font-weight: 300;
+        }
+
+        .course-column li {
+            color: #f3f4f6;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
         }
 
         .skill-column {
@@ -616,7 +632,6 @@
             <!--<div class="education-subtitle">
                 Per aspera ad astra... The difficult path from junior to commercial practice mentor
             </div>-->
-
             <div class="education-content">
                 <div class="courses-grid">
                         <ul class="course-column">
