@@ -25,4 +25,3 @@ This is a single-page website built with pure HTML and CSS to showcase my backgr
 - GitHub: [@red4beard](https://github.com/red4beard)
 - LinkedIn: [aleksandr-chikurov](https://www.linkedin.com/in/aleksandr-chikurov)
 - Telegram: [@emg812](https://t.me/emg812)
-- Email: alchikurov@gmail.com
